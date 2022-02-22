@@ -1,40 +1,30 @@
-function searchPieces() {
-    const config = { 
-        api: `https://www.rijksmuseum.nl/api/nl/collection?key=`,
-        key: `JXVjejNU`
-    }
+import searchPieces from "./modules/searchPieces.js";
 
-    const images = document.querySelectorAll('img');
-    const input = document.querySelector('input');
-    const term = input.value;
+const main = document.querySelector('main');
+const searchBar = document.querySelector('input');
+const hideButton = document.querySelector('form button');
+const form = document.querySelector('form');
 
-    images.forEach(image => {
-        image.remove();
-    })
+searchBar.addEventListener('focus', () => {
+    main.classList.add('focussed-main');
+    searchBar.classList.add('focussed-searchbar');
+    hideButton.classList.add('focussed-hidebutton');
+})
 
-    const url =`${config.api}${config.key}&q=${term}`
+hideButton.addEventListener('click', () => {
+    document.querySelectorAll('.item').forEach(item => {
+        item.remove();
+    })    
+    main.classList.remove('focussed-main');
+    searchBar.classList.remove('focussed-searchbar');
+    searchBar.value = '';
+    hideButton.classList.remove('focussed-hidebutton');
 
-    fetch(`${url}`)
-    .then(response => response.json())
-    .then(data => {
-        const artObjects = data.artObjects
+})
 
-        let pieces = artObjects.map(object => {
-            const singleURL = object.webImage.url;
-            const title = object.title;
-            return {singleURL, title};
-        })
+form.addEventListener('submit', event => {
+    event.preventDefault()
+    searchPieces()
+}) 
 
-        pieces.forEach(piece => {
-            const img = document.createElement("img");
-            img.src = piece.singleURL;
-            img.setAttribute("loading", "lazy");
-            img.setAttribute("alt", piece.title);
-            const src = document.querySelector("body");
-            src.appendChild(img);
-        });
-    });
-}
-
-
-
+// console.log(searchPieces());
