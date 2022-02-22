@@ -12,7 +12,7 @@ searchBar.addEventListener('focus', () => {
 })
 
 hideButton.addEventListener('click', () => {
-    document.querySelectorAll('.item').forEach(item => {
+    document.querySelectorAll('figure').forEach(item => {
         item.remove();
     })    
     main.classList.remove('focussed-main');
