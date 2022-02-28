@@ -1,30 +1,16 @@
-import searchPieces from "./modules/searchPieces.js";
+import {searchPieces} from "./modules/searchPieces.js";
+import * as variables from "./modules/variables.js";
+import {focusSearch} from "./modules/focusSearch.js";
+import {cancelSearch} from "./modules/cancelSearch.js";
 
-const main = document.querySelector('main');
-const searchBar = document.querySelector('input');
-const hideButton = document.querySelector('form button');
-const form = document.querySelector('form');
+focusSearch()
 
-searchBar.addEventListener('focus', () => {
-    main.classList.add('focussed-main');
-    searchBar.classList.add('focussed-searchbar');
-    hideButton.classList.add('focussed-hidebutton');
-})
+cancelSearch()
 
-hideButton.addEventListener('click', () => {
-    document.querySelectorAll('figure').forEach(item => {
-        item.remove();
-    })    
-    main.classList.remove('focussed-main');
-    searchBar.classList.remove('focussed-searchbar');
-    searchBar.value = '';
-    hideButton.classList.remove('focussed-hidebutton');
-
-})
-
-form.addEventListener('submit', event => {
-    event.preventDefault()
-    searchPieces()
+variables.form.addEventListener('submit', event => {
+    event.preventDefault();
+    searchPieces();
 }) 
 
-// console.log(searchPieces());
+
+

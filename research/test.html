@@ -2,12 +2,12 @@
 <head>
     <title>Hello</title>
     <script type = "module">
-            function select_tab(id) {
-                // remove selected class from all buttons
-                document.querySelectorAll(".route").forEach(item => item.classList.remove('selected'));
-                // select clicked element (visually)
-                document.querySelectorAll("#" + id).forEach(item => item.classList.add('selected'));
-            }
+            // function select_tab(id) {
+            //     // remove selected class from all buttons
+            //     document.querySelectorAll(".route").forEach(item => item.classList.remove('selected'));
+            //     // select clicked element (visually)
+            //     document.querySelectorAll("#" + id).forEach(item => item.classList.add('selected'));
+            // }
             function load_content(id) {
                 console.log("Loading content for {" + id + "}");
                 // Update text "Content loading for {id}..."
@@ -19,7 +19,7 @@
                 // Get id attribute of the box or button or link clicked
                 let id = event.target.id;
                 // Visually select the clicked button/tab/box
-                select_tab(id);
+                // select_tab(id);
                 // Update Title in Window's Tab
                 document.title = id;
                 // Load content for this tab/page
