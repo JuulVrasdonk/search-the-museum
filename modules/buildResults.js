@@ -1,5 +1,5 @@
 const buildResults = cleanResults => {
-    cleanResults.forEach(piece => {
+    const buildItem = cleanResults.map(piece => {
         const figure = document.createElement("figure");
         const img = document.createElement("img");
         const figCaption = document.createElement("figcaption");
@@ -17,8 +17,12 @@ const buildResults = cleanResults => {
         figure.setAttribute("id", piece.id)
         const src = document.querySelector("main > section");
         src.appendChild(figure);
+
+        const pieceTitle = piece.title;
+        // console.log(pieceTitle);
+        return {pieceTitle, figure}
     });
-    
+    return buildItem
 }
 
 export {buildResults}

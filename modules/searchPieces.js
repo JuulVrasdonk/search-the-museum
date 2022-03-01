@@ -10,6 +10,8 @@ const searchPieces = () => {
         figure.remove();
     })
 
+    
+
     fetch(`${variables.url}${variables.input.value}`)
     .then(response => response.json())
     .then(getData)

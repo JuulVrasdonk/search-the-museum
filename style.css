@@ -1,12 +1,18 @@
 @font-face {
-    font-family: Butler;
-    src: url(./assets/Fonts/Butler_Regular.otf);
-    font-weight: normal;
+    font-family: "Rijks-Normal";
+    src: url("./assets/fonts/Rijksmuseum-Normal.woff") format("woff");
 }
 
+@font-face {
+    font-family: "Rijks-Bold";
+    src: url("./assets/fonts/Rijksmuseum-Bold.woff") format("woff");
+}
+
+
+
 :root {
-    --heading-font: Butler;
-    --text-font: Helvetica, Arial;
+    --heading-font: Rijks-Bold;
+    --text-font: Rijks-Normal ,Helvetica, Arial;
     --h1-fontsize: clamp(72px, 12vw, 120px);
     --itemtext-fontsize: clamp(24px, 3vw, 36px);
     --text-fontsize: clamp(18px, 2.5vw, 24px);
@@ -153,4 +159,10 @@ figcaption {
     transition: .5s;
     opacity: 1;
 
+}
+
+#root h2 {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine;
 }

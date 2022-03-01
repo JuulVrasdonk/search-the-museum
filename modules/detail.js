@@ -1,24 +1,19 @@
-const detail = () => {
-    const allResults = document.querySelectorAll('figure');
+import { buildResults } from "./buildResults.js";
 
-    allResults.forEach(figure => {
+const detail = buildResults => {
 
-        const detailTemplate = `<h1>About</h1>`
+    buildResults.forEach(item => {
+        console.log(item.pieceTitle);
+    
+        const detailTemplate = `<h2>${item.pieceTitle}</h2>`;
 
-        const key = `/${figure.id}`;
+        const key = `/${item.figure.id}`;
 
         const routes = {
             [key]: detailTemplate    
         };
 
-        console.log(Object.keys(routes));
-
-
-
         const rootDiv = document.getElementById('root');
-        rootDiv.innerHTML = routes[window.location.pathname];
-
-
 
         const onNavigate = (pathname) => {
             window.history.pushState({}, 
@@ -28,18 +23,16 @@ const detail = () => {
             rootDiv.innerHTML = routes[pathname]
         }
 
-
-
         window.onpopstate = () => {
             rootDiv.innerHTML = routes[window.location.pathname]
         }
 
-        
-        figure.addEventListener('click', event => {
+        item.figure.addEventListener('click', event => {
             onNavigate(Object.keys(routes));
+            console.log(Object.keys(routes));
+            rootDiv.innerHTML = routes[window.location.pathname];
         })
-
-            })
+    })
 }
 
 export{detail}
