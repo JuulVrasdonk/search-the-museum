@@ -1,13 +1,19 @@
 import { buildResults } from "./buildResults.js";
+import {searchPieces} from "./searchPieces.js";
 
 const detail = buildResults => {
 
     buildResults.forEach(item => {
-        console.log(item.pieceTitle);
-    
-        const detailTemplate = `<h2>${item.pieceTitle}</h2>`;
+        const detailTemplate = `
+        <section>
+            <h2>${item.pieceTitle}</h2>
+            <p>${item.pieceMaker}</p>
+            <img src="${item.pieceImage}" alt="${item.pieceTitle}"></img>
+        </section>
+        `;
 
         const key = `/${item.figure.id}`;
+
 
         const routes = {
             [key]: detailTemplate    
@@ -23,13 +29,14 @@ const detail = buildResults => {
             rootDiv.innerHTML = routes[pathname]
         }
 
+
         window.onpopstate = () => {
             rootDiv.innerHTML = routes[window.location.pathname]
+            // console.log('pop');
         }
 
         item.figure.addEventListener('click', event => {
             onNavigate(Object.keys(routes));
-            console.log(Object.keys(routes));
             rootDiv.innerHTML = routes[window.location.pathname];
         })
     })

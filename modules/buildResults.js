@@ -1,3 +1,5 @@
+import * as variables  from "./variables.js";
+
 const buildResults = cleanResults => {
     const buildItem = cleanResults.map(piece => {
         const figure = document.createElement("figure");
@@ -15,12 +17,13 @@ const buildResults = cleanResults => {
         figure.appendChild(img);
         figure.appendChild(figCaption);
         figure.setAttribute("id", piece.id)
-        const src = document.querySelector("main > section");
-        src.appendChild(figure);
+        variables.resultSection.appendChild(figure);
+
 
         const pieceTitle = piece.title;
-        // console.log(pieceTitle);
-        return {pieceTitle, figure}
+        const pieceMaker = piece.maker;
+        const pieceImage = piece.singleURL;
+        return {pieceTitle, figure, pieceMaker, pieceImage}
     });
     return buildItem
 }
