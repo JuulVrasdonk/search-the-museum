@@ -14,6 +14,7 @@
     --heading-font: Rijks-Bold;
     --text-font: Rijks-Normal ,Helvetica, Arial;
     --h1-fontsize: clamp(72px, 12vw, 120px);
+    --h2-fontsize: clamp(40px, 8vw, 80px);
     --itemtext-fontsize: clamp(24px, 3vw, 36px);
     --text-fontsize: clamp(18px, 2.5vw, 24px);
 }
@@ -101,7 +102,7 @@ main {
     overflow: hidden;
 }
 
-main > section {
+main > section:first-of-type {
     height: 72%;
     width: 100%;
     margin-top: 10%;
@@ -117,11 +118,12 @@ main section::-webkit-scrollbar {
     display: none;
   }
 
-figure {
+a {
     height: 100%;
     min-width: 80%;
     margin-left: 7.5%;
     scroll-snap-align: center;
+    text-decoration: none;
 }
 
 figure:last-of-type {
@@ -160,19 +162,55 @@ figcaption {
 
 }
 
-#root {
+.details {
     position: absolute;
     top: 0;
     bottom: 0;
     left: 0;
     right: 0;
-    /* display: none; */
+    z-index: 2;
+    padding: 16px;
+    background-color: #000000;
 }
 
-#root section {
-    height: 100%;
-    width: 100%;
-    /* background-color: aquamarine; */
+.details button {
+    background-color: transparent;
+    border: none;
+    color: white;
+    display: inline-block;
+    font-family: var(--text-font);
+    font-size: var(--text-fontsize);
+    padding: 0;
+}
+
+.details h2 {
+    font-size: var(--h2-fontsize);
+    background: -webkit-linear-gradient(180deg, #FFFFFF -10.75%, rgba(255, 255, 255, 0.7) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-family: var(--heading-font);
+    margin-top: 24px;
+}
+
+.details p {
+    color: #FFFFFF;
+    font-size: var(--itemtext-fontsize);
+    font-family: var(--text-font);
+}
+
+.disabled {
+    display: none;
+}
+
+
+
+/* #root {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    display: none;
 }
 
 #root section img {
@@ -180,7 +218,7 @@ figcaption {
     z-index: -1;
     height: 100vh;
     top: 0;
-}
+} */
 /* .loader {
     width: 80px;
     height: 80px;

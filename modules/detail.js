@@ -1,45 +1,50 @@
-import { buildResults } from "./buildResults.js";
-import {searchPieces} from "./searchPieces.js";
+import * as variables from "./variables.js";
+import { searchPieces } from "./searchPieces.js";
 
-const detail = buildResults => {
+const routing = newData => {
 
-    buildResults.forEach(item => {
-        const detailTemplate = `
-        <section>
-            <h2>${item.pieceTitle}</h2>
-            <p>${item.pieceMaker}</p>
-            <img src="${item.pieceImage}" alt="${item.pieceTitle}"></img>
-        </section>
-        `;
+    const sections = document.querySelectorAll('section');
+    const section = document.querySelector(`section[data-route="detail"]`);
+    const ul = document.createElement("ul");
+    section.appendChild(ul)
 
-        const key = `/${item.figure.id}`;
-
-
-        const routes = {
-            [key]: detailTemplate    
-        };
-
-        const rootDiv = document.getElementById('root');
-
-        const onNavigate = (pathname) => {
-            window.history.pushState({}, 
-                pathname,
-                window.location.origin + pathname
-            )
-            rootDiv.innerHTML = routes[pathname]
+    routie({
+        'artwork/:id': (id) => {
+            while (ul.firstChild) {
+                ul.removeChild(ul.firstChild);
+            }
+            let filterOnID = newData.filter(item => item.id === id);
+            filterOnID.forEach(item => {
+                const figures = `
+                    <figure>
+                        <figcaption>
+                        <h2>${item.pieceTitle} - ${item.pieceMaker}</h2>
+                        </figcaption>
+                        <img src="${item.pieceImage}" alt="${item.longTitle}">
+                    </figure>
+            `;
+                const li = document.createElement('li');
+                li.innerHTML = figures;
+                ul.appendChild(li);
+            })
+            updateUI("detail");
+        },
+        " ": () => {
+            updateUI("normal");
         }
+    });
 
+    function updateUI(route) {
+        sections.forEach((item) => {
+            item.classList.add("disabled");
+        });
+        let activeSection = document.querySelector(`[data-route=${route}]`);
+        activeSection.classList.remove("disabled");
+    }
 
-        window.onpopstate = () => {
-            rootDiv.innerHTML = routes[window.location.pathname]
-            // console.log('pop');
-        }
-
-        item.figure.addEventListener('click', event => {
-            onNavigate(Object.keys(routes));
-            rootDiv.innerHTML = routes[window.location.pathname];
-        })
-    })
+    return newData
 }
 
-export{detail}
+export {
+    routing
+}

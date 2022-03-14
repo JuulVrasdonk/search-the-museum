@@ -3,7 +3,7 @@ import * as variables from "./variables.js"
 const uiStack = {
     loading: (active) => {
         if(active) {
-            console.log('loading');
+            // console.log('loading');
             // let templateLoader = 
             // `<div class="loader">
             //     <div class="loaderline"></div>
@@ -15,7 +15,7 @@ const uiStack = {
 
         } else {
             // variables.resultSection.innerHTML = "";
-            console.log('finished');
+            // console.log('finished');
         }
     },
     error: () => {

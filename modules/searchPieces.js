@@ -2,13 +2,13 @@ import * as variables from "./variables.js";
 import { getData } from "./getData.js";
 import { buildResults } from "./buildResults.js";
 import { cleanPieces } from "./filterResults.js"; 
-import { detail } from "./detail.js";
+import { routing } from "./detail.js";
 import { uiStack} from "./uiStack.js";
 
 const searchPieces = () => {  
     uiStack.loading(true)
 
-    const figures = document.querySelectorAll("figure")
+    const figures = document.querySelectorAll("a")
     figures.forEach(figure => {
         figure.remove();
     })
@@ -18,8 +18,9 @@ const searchPieces = () => {
     .then(getData)
     .then(cleanPieces)
     .then(buildResults)
-    .then(uiStack.loading())
-    .then(detail)
+    .then(routing)
+    // .then(uiStack.loading())
+    
     // .catch(uiStack.error())
 }
 
