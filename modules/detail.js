@@ -15,14 +15,7 @@ const routing = newData => {
             }
             let filterOnID = newData.filter(item => item.id === id);
             filterOnID.forEach(item => {
-                const figures = `
-                    <figure>
-                        <figcaption>
-                        <h2>${item.pieceTitle} - ${item.pieceMaker}</h2>
-                        </figcaption>
-                        <img src="${item.pieceImage}" alt="${item.longTitle}">
-                    </figure>
-            `;
+                const figures = item.itemTemplate;
                 const li = document.createElement('li');
                 li.innerHTML = figures;
                 ul.appendChild(li);
