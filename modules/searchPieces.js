@@ -6,6 +6,8 @@ import { routing } from "./detail.js";
 import { uiStack} from "./uiStack.js";
 
 const searchPieces = () => {  
+    uiStack.empty()
+    uiStack.error()
     uiStack.loading(true)
 
     const figures = document.querySelectorAll("a")
@@ -19,9 +21,7 @@ const searchPieces = () => {
     .then(cleanPieces)
     .then(buildResults)
     .then(routing)
-    // .then(uiStack.loading())
-    
-    // .catch(uiStack.error())
+    .catch(error => console.log(error))
 }
 
 export {searchPieces};

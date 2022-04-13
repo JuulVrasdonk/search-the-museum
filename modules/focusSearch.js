@@ -1,3 +1,4 @@
+import { uiStack } from "./uiStack.js";
 import * as variables from "./variables.js"
 
 const focusSearch = () => {
@@ -5,6 +6,8 @@ const focusSearch = () => {
         variables.main.classList.add('focussed-main');
         variables.input.classList.add('focussed-searchbar');
         variables.hideButton.classList.add('focussed-hidebutton');
+
+        uiStack.empty(true)
     })
 }
 
