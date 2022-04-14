@@ -17,6 +17,9 @@ uit het Rijksmuseum. Door middel van de [RijksData API](https://data.rijksmuseum
 
 ```git clone https://github.com/JuulVrasdonk/functional-programming```
 
+## Activity Diagram
+![alt text](https://github.com/JuulVrasdonk/search-the-museum/blob/main/assets/wiki/Activity-Diagram.jpg)
+
 ## Features
 1. ✅ Zoek in de collectie van het Rijks, denk aan:
   * Kunstenaar
