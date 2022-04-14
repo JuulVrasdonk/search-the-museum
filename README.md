@@ -9,6 +9,7 @@ uit het Rijksmuseum. Door middel van de [RijksData API](https://data.rijksmuseum
 <!-- Maybe a table of contents here? 📚 -->
 ## Table of contents
 - [Installation](#Installation)
+- [Activity Diagram](#Activity-Diagram)
 - [Features](#Features)
 - [Externe data bron](#Externe-data-bron)
 
