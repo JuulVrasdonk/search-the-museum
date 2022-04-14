@@ -6,7 +6,6 @@ import { routing } from "./detail.js";
 import { uiStack} from "./uiStack.js";
 
 const searchPieces = () => {  
-    uiStack.empty()
     uiStack.error()
     uiStack.loading(true)
 

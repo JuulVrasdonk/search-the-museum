@@ -7,7 +7,6 @@ const focusSearch = () => {
         variables.input.classList.add('focussed-searchbar');
         variables.hideButton.classList.add('focussed-hidebutton');
 
-        uiStack.empty(true)
     })
 }
 

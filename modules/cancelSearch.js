@@ -10,7 +10,6 @@ const cancelSearch = () => {
         variables.input.classList.remove('focussed-searchbar');
         variables.input.value = '';
         variables.hideButton.classList.remove('focussed-hidebutton');
-        uiStack.empty();
         uiStack.error();
         uiStack.loading();
     })

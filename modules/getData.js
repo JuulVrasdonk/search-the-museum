@@ -5,6 +5,7 @@ const getData = data => {
 
         const artObjects = data.artObjects;
         if (artObjects.length > 0) {
+            uiStack.loading()
             let pieces = artObjects.map(object => {
                 // console.log(object);
                 const singleURL = object.webImage.url + 600;

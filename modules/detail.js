@@ -1,5 +1,7 @@
-const routing = newData => {
+import * as variables from "./variables.js";
+import { searchPieces } from "./searchPieces.js";
 
+const routing = newData => {
 
     const sections = document.querySelectorAll('section');
     const section = document.querySelector(`section[data-route="detail"]`);
@@ -13,14 +15,7 @@ const routing = newData => {
             }
             let filterOnID = newData.filter(item => item.id === id);
             filterOnID.forEach(item => {
-                const figures = `
-                <a href="#artwork/${newData.id}">
-                    <figure>
-                        <img src="${newData.pieceImage}" loading="lazy" alt="${newData.pieceTitle}" class="item">
-                        <figcaption>${newData.pieceTitle} door: ${newData.pieceMaker}</figcaption>
-                    </figure>
-                </a>`;
-            
+                const figures = item.itemTemplate;
                 const li = document.createElement('li');
                 li.innerHTML = figures;
                 ul.appendChild(li);
