@@ -6,6 +6,8 @@
 De Search the Museum app zorgt ervoor dat je thuis op bank, onderweg naar je werk of tijdens een wandeling in het bos, nog steeds kan genieten van de kunst
 uit het Rijksmuseum. Door middel van de [RijksData API](https://data.rijksmuseum.nl/object-metadata/api/) kan het grootste deel van de kunst opgehaald worden. Je kan zelfs kunststukken bekijken die niet in het museum tentoongesteld worden.
 
+__[Bekijk hier mijn Wiki](https://github.com/JuulVrasdonk/search-the-museum/wiki)__
+
 <!-- Maybe a table of contents here? 📚 -->
 ## Table of contents
 - [Installation](#Installation)
