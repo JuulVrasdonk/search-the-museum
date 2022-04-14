@@ -19,10 +19,10 @@ uit het Rijksmuseum. Door middel van de [RijksData API](https://data.rijksmuseum
 
 ## Features
 1. ✅ Zoek in de collectie van het Rijks, denk aan:
-  • Kunstenaar
-  • Kleur
-  • Naam van het werk
-  • Thema van het werk (wat is er te zien?)
+  * Kunstenaar
+  * Kleur
+  * Naam van het werk
+  * Thema van het werk (wat is er te zien?)
 2. ✅ Bekijk 10 werken die bij deze zoekterm passen. 
 3. ✅ Lees meer over een werk op de detailpagina. 
 
